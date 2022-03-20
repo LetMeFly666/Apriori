@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-20 10:16:13
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-20 11:45:34
+ * @LastEditTime: 2022-03-20 11:46:53
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -33,9 +33,9 @@ Trie *build(vector<string> &words) {
         for (char &c : word) {
             if (!t->childs[c - 'a']) {
                 t->childs[c - 'a'] = new Trie;
+                t->childs[c - 'a']->father = t;
+                t->childs[c - 'a']->thisChar = c - 'a';
             }
-            t->childs[c - 'a']->father = t;
-            t->childs[c - 'a']->thisChar = c - 'a';
             t = t->childs[c - 'a'];
         }
         t->wordLength.push_back(word.size());
