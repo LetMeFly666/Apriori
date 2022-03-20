@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-20 10:16:13
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-20 11:34:25
+ * @LastEditTime: 2022-03-20 11:45:34
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -17,6 +17,12 @@ struct Trie {
     Trie *fail, *father;
     uint8_t thisChar;
     vector<int> wordLength;  // 以此为结尾的单词的长度
+    Trie() {
+        fail = father = nullptr;
+        for (int i = 0; i < 26; i++) {
+            childs[i] = nullptr;
+        }
+    }
 };
 
 Trie *build(vector<string> &words) {
