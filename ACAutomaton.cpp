@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-20 10:16:13
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-20 12:43:52
+ * @LastEditTime: 2022-03-20 12:46:32
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -44,7 +44,7 @@ Trie *build(vector<string> &words) {
     // region 构建fail指针
     queue<Trie *> q;
     root->fail = root;
-    for (int i = 0; i < 26; i++) {  // root和第1层的father指针特俗处理
+    for (int i = 0; i < 26; i++) {  // root和第1层的father指针特殊处理
         if (root->childs[i]) {
             root->childs[i]->fail = root;
             for (int j = 0; j < 26; j++) {
