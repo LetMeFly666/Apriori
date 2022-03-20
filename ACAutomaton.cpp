@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-20 10:16:13
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-20 11:46:53
+ * @LastEditTime: 2022-03-20 12:13:59
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -79,6 +79,10 @@ void destroy(Trie *root) {
 vector<string> &read() {
     int n;
     cin >> n;
+    // if (n == 1) {
+    //     puts("1");  // 这里是想debug一下测试数据2
+    //     exit(0);
+    // }
     static vector<string> v(n);
     for (int i = 0; i < n; i++) {
         cin >> v[i];
@@ -90,18 +94,27 @@ int count(Trie *root, string &s) {
     int ans = 0;
     Trie *t = root;
     for (char &c : s) {
-        if (t->childs[c - 'a']) {
-            t = t->childs[c - 'a'];
-            ans += t->wordLength.size();
+        try {
+            if (t->childs[c - 'a']) {
+                t = t->childs[c - 'a'];
+                ans += t->wordLength.size();
+            }
+            else {
+                t = t->fail;
+            }
         }
-        else {
-            t = t->fail;
+        catch(...) {
+            dbg(t->childs);
+            for (int i = 0; i < 26; i++) {
+                dbg(t->childs[i]);
+            }
         }
     }
     return ans;
 }
 
 int main() {
+    freopen("P3808_2.in", "r", stdin);  //*****
     vector<string> words = read();
     Trie *root = build(words);
     string t;
