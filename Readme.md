@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 22:50:20
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-20 17:11:06
+ * @LastEditTime: 2022-03-20 17:41:47
 -->
 # Apriori算法实现关联规则的数据挖掘
 
@@ -145,3 +145,9 @@ Ln是所有的 商品个数为n的、支持度≥给定支持度的商品集 的
 Ln是由Ln-1得到的。假设n=3，ab、ac∈Ln-1，由Ln-1得到Ln的时候，由ab和ac就可以组成abc(长度为3)。
 
 如果bc∉Ln-1，那么就直接排除abc。（其中bc是abc的一个长度为n-1的子集。这么剪枝要找到所有abc中长度为2的子集，复杂度为O(n)）
+
+#### 主要瓶颈
+
+1. 统计abc的出现次数
+
+2. 找C中前缀全部相同的项（abc + abd -> abcd）
