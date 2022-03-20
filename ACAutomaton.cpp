@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-20 10:16:13
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-20 13:09:15
+ * @LastEditTime: 2022-03-20 16:26:36
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -59,9 +59,9 @@ Trie *build(vector<string> &words) {
         q.pop();
         if (t->father->fail->childs[t->thisChar]) {  // father的fail指针指向的节点有这个字符的儿子
             t->fail = t->father->fail->childs[t->thisChar];
-            for (int &wordLength : t->father->wordLength) {  // 
-                t->wordLength.push_back(wordLength);
-            }
+            // for (int &wordLength : t->father->wordLength) {  // 
+            //     t->wordLength.push_back(wordLength);
+            // }
         }
         else {
             t->fail = root;
@@ -123,7 +123,7 @@ int count(Trie *root, string &s) {
 }
 
 void debug(Trie *root) {
-    printf("[%c]'s childs:", root->thisChar);
+    printf("[%c]'s childs:", root->thisChar + 'a');
     for (int i = 0; i < 26; i++)
         if (root->childs[i])
             printf(" %c,", i + 'a');
@@ -137,10 +137,10 @@ void debug(Trie *root) {
 }
 
 int main() {
-    freopen("P3808_3.in", "r", stdin);  //*****
+    freopen("P3808_1.in", "r", stdin);  //*****
     vector<string> words = read();
     Trie *root = build(words);
-    debug(root);
+    // debug(root);
     string t;
     cin >> t;
     cout << count(root, t) << endl;
