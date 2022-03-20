@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-20 10:16:13
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-20 12:36:46
+ * @LastEditTime: 2022-03-20 12:43:52
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -47,7 +47,11 @@ Trie *build(vector<string> &words) {
     for (int i = 0; i < 26; i++) {  // root和第1层的father指针特俗处理
         if (root->childs[i]) {
             root->childs[i]->fail = root;
-            q.push(root->childs[i]);
+            for (int j = 0; j < 26; j++) {
+                if (root->childs[i]->childs[j]) {
+                    q.push(root->childs[i]->childs[j]);
+                }
+            }
         }
     }
     while (q.size()) {
@@ -61,6 +65,11 @@ Trie *build(vector<string> &words) {
         }
         else {
             t->fail = root;
+        }
+        for (int i = 0; i < 26; i++) {
+            if (t->childs[i]) {
+                q.push(t->childs[i]);
+            }
         }
     }
     // endregion 构建fail指针
@@ -103,12 +112,7 @@ int count(Trie *root, string &s) {
             ans += t->wordLength.size();
         }
         else {
-            if (t->fail)
-                t = t->fail;
-            else {
-                puts("***");
-                exit(0);
-            }
+            t = t->fail;
         }
     }
     return ans;
