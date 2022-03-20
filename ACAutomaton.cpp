@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-20 10:16:13
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-20 12:18:47
+ * @LastEditTime: 2022-03-20 12:36:46
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -94,16 +94,21 @@ int count(Trie *root, string &s) {
     int ans = 0;
     Trie *t = root;
     for (char &c : s) {
-        if (!t) {
-            puts("***");
-            exit(0);
-        }
+        // if (!t) {
+        //     puts("***");
+        //     exit(0);
+        // }
         if (t->childs[c - 'a']) {
             t = t->childs[c - 'a'];
             ans += t->wordLength.size();
         }
         else {
-            t = t->fail;
+            if (t->fail)
+                t = t->fail;
+            else {
+                puts("***");
+                exit(0);
+            }
         }
     }
     return ans;
