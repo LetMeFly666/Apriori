@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-20 10:16:13
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-20 12:46:32
+ * @LastEditTime: 2022-03-20 13:09:15
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -26,13 +26,13 @@ struct Trie {
 };
 
 Trie *build(vector<string> &words) {
-    Trie *root = new Trie;
+    Trie *root = new Trie();
     // region 插入单词，构建Trie树
     for (string &word : words) {
         Trie *t = root;
         for (char &c : word) {
             if (!t->childs[c - 'a']) {
-                t->childs[c - 'a'] = new Trie;
+                t->childs[c - 'a'] = new Trie();
                 t->childs[c - 'a']->father = t;
                 t->childs[c - 'a']->thisChar = c - 'a';
             }
@@ -110,6 +110,10 @@ int count(Trie *root, string &s) {
         if (t->childs[c - 'a']) {
             t = t->childs[c - 'a'];
             ans += t->wordLength.size();
+            // if (t->wordLength.size()) {
+            //     dbg(ans);
+            //     dbg(t->wordLength.size());
+            // }
         }
         else {
             t = t->fail;
@@ -118,10 +122,25 @@ int count(Trie *root, string &s) {
     return ans;
 }
 
+void debug(Trie *root) {
+    printf("[%c]'s childs:", root->thisChar);
+    for (int i = 0; i < 26; i++)
+        if (root->childs[i])
+            printf(" %c,", i + 'a');
+    printf(" wordLength:");
+    for (int &wordLength : root->wordLength)
+        printf(" %d,", wordLength);
+    puts("");
+    for (int i = 0; i < 26; i++)
+        if (root->childs[i])
+            debug(root->childs[i]);
+}
+
 int main() {
-    freopen("P3808_2.in", "r", stdin);  //*****
+    freopen("P3808_3.in", "r", stdin);  //*****
     vector<string> words = read();
     Trie *root = build(words);
+    debug(root);
     string t;
     cin >> t;
     cout << count(root, t) << endl;
