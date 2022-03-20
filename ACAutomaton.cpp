@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-20 10:16:13
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-20 11:27:42
+ * @LastEditTime: 2022-03-20 11:34:25
  */
 #include <bits/stdc++.h>
 using namespace std;
@@ -73,7 +73,7 @@ void destroy(Trie *root) {
 vector<string> &read() {
     int n;
     cin >> n;
-    vector<string> v(n);
+    static vector<string> v(n);
     for (int i = 0; i < n; i++) {
         cin >> v[i];
     }
