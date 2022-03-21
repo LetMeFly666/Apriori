@@ -2,18 +2,14 @@
  * @Author: LetMeFly
  * @Date: 2022-03-21 12:09:53
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-21 13:12:47
+ * @LastEditTime: 2022-03-21 13:27:00
  */
 #include "LetMeFly.h"
 
 #ifndef Test_CPP
 #define Test_CPP
 
-extern set<uint16_t> items[88163];
-extern int recordNum;
-extern Test test;
-
-void Test::test_fastRead(bool toFile) {
+void Test::test_fastRead(set<uint16_t> items[], int recordNum, bool toFile) {
     puts("items:");
     if (toFile) {
         puts("See it in test_fastRead.out");

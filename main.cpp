@@ -2,15 +2,15 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 23:20:32
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-21 13:11:52
+ * @LastEditTime: 2022-03-21 13:28:01
  */
 // g++ main.cpp Test.cpp -o main.exe
 
 #include "LetMeFly.h"
 #define DATA_NAME "Source\\retail.dat"
 
-extern set<uint16_t> items[88163];
-extern int recordNum;
+set<uint16_t> items[88163];  // 方法四、交易记录
+int recordNum = 0;  // 第recordNum条交易记录
 
 void fastRead() {
     
@@ -47,6 +47,6 @@ void fastRead() {
 int main() {
     fastRead();
     dbg(recordNum);
-    test.test_fastRead();
+    test.test_fastRead(items, recordNum, true);
     return 0;
 }
