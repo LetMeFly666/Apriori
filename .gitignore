@@ -2,3 +2,6 @@
 del*
 .vscode
 .vs
+*.vcxproj
+*.filters
+*.user
