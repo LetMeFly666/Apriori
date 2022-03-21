@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 23:20:32
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-21 14:35:48
+ * @LastEditTime: 2022-03-21 14:38:50
  */
 // g++ main.cpp Test.cpp -o main.exe
 
@@ -100,7 +100,6 @@ void inputAnd2minSupportNum() {
 int main() {
     printf("Please input the min_support, 80.756%% for percent, 80756 for num:");
     fastRead();
-    test.test_inputAnd2minSupportNum(recordNum);
     inputAnd2minSupportNum();
     return 0;
 }
