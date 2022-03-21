@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 23:20:32
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-21 14:32:45
+ * @LastEditTime: 2022-03-21 14:33:52
  */
 // g++ main.cpp Test.cpp -o main.exe
 
@@ -43,6 +43,7 @@ void fastRead() {
     if (lastIsNum) {  // 文件最后一个是数字
         items[recordNum].insert(num);
     }
+    fclose(fp);
 }
 
 /* 输入最小支持度并转换为最小支持数 */
