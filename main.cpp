@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 23:20:32
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-21 14:38:50
+ * @LastEditTime: 2022-03-21 21:49:18
  */
 // g++ main.cpp Test.cpp -o main.exe
 
@@ -10,8 +10,12 @@
 #define DATA_NAME "Source\\retail.dat"
 
 set<uint16_t> items[88163];  // 方法四、交易记录
+set<uint16_t> ids;  // 所有的商品id
 int recordNum = 0;  // 第recordNum条交易记录
 int minSupportNum;  // 最少出现多少次才能
+typedef pair<vector<uint16_t>, int> Log;  // <[id1, id2, id3, ...], 出现次数>
+map<vector<uint16_t>, int> ma[88163];  // ma[i]：商品个数为i的 <[id1, id2, ..., idi], 出现次数>
+int maxItemNumPerLog = 1;  // 每项的商品数量
 
 /* 读入数据 */
 void fastRead() {
@@ -33,6 +37,7 @@ void fastRead() {
         else {
             if (lastIsNum) {  // 数字->非数字
                 items[recordNum].insert(num);
+                ids.insert(num);
             }
             if (c == '\n') {
                 recordNum++;
@@ -42,6 +47,7 @@ void fastRead() {
     }
     if (lastIsNum) {  // 文件最后一个是数字
         items[recordNum].insert(num);
+        ids.insert(num);
     }
     if (c != '\n') {  // 如果文件不是以回车结尾的，那么recordNum要+1
         recordNum++;
@@ -97,9 +103,49 @@ void inputAnd2minSupportNum() {
     }
 }
 
+void calu() {
+    for (set<uint16_t>::iterator it = ids.begin(); it != ids.end(); it++) {
+        vector<uint16_t> thisLog = {*it};
+        int cnt = 0;
+        for (int i = 0; i < maxItemNumPerLog; i++) {
+            cnt += items[i].count(*it);
+        }
+        if (cnt >= minSupportNum)
+            ma[maxItemNumPerLog][thisLog] = cnt;
+    }
+    while (ma[maxItemNumPerLog].size()) {
+        maxItemNumPerLog++;
+
+    }
+    maxItemNumPerLog--;  // 因为最后一次ma为空
+}
+
+void prt() {
+    for (int i = 1; i <= maxItemNumPerLog; i++) {
+        printf("\n");
+        printf("itemNum: %d\n", i);
+        printf("-------------\n");
+        for (map<vector<uint16_t>, int>::iterator it = ma[i].begin(); it != ma[i].end(); it++) {
+            bool firstPrt = true;
+            putchar('[');
+            for (const uint16_t &t : it->first) {
+                if (firstPrt)
+                    firstPrt = false;
+                else
+                    printf(", ");
+                printf("%d", t);
+            }
+            putchar(']');
+            printf(" -> %d\n", it->second);
+        }
+    }
+}
+
 int main() {
     printf("Please input the min_support, 80.756%% for percent, 80756 for num:");
     fastRead();
     inputAnd2minSupportNum();
+    calu();
+    prt();
     return 0;
 }
