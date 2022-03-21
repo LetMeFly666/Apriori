@@ -2,12 +2,15 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 23:20:32
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-21 12:29:09
+ * @LastEditTime: 2022-03-21 13:11:52
  */
-// g++ main.cpp CountItemNum.cpp -o main.exe
+// g++ main.cpp Test.cpp -o main.exe
 
 #include "LetMeFly.h"
-#define DATA_NAME "Source/retail.dat"
+#define DATA_NAME "Source\\retail.dat"
+
+extern set<uint16_t> items[88163];
+extern int recordNum;
 
 void fastRead() {
     
@@ -43,7 +46,7 @@ void fastRead() {
 
 int main() {
     fastRead();
+    dbg(recordNum);
     test.test_fastRead();
-    system("pause");
     return 0;
 }
