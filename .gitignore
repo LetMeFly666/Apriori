@@ -5,3 +5,4 @@ del*
 *.vcxproj
 *.filters
 *.user
+x64
