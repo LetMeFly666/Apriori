@@ -4,8 +4,7 @@
  * @LastEditors: LetMeFly
  * @LastEditTime: 2022-03-21 12:28:36
  */
-#ifndef LetMeFly_H
-#define LetMeFly_H
+#pragma once
 
 #include <iostream>
 #include <set>
@@ -13,13 +12,10 @@
 using namespace std;
 
 
-set<uint16_t> items[88163];  // 方法四、交易记录
-int recordNum = 0;  // 第recordNum条交易记录
+static set<uint16_t> items[88163];  // 方法四、交易记录
+static int recordNum = 0;  // 第recordNum条交易记录
 
-int countItemNum();
-class Test{
+static class Test{
 public:
     void test_fastRead(bool toFile = false);
 } test;
-
-#endif

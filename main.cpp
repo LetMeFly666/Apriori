@@ -43,7 +43,7 @@ void fastRead() {
 
 int main() {
     fastRead();
-    // test.test_fastRead();
+    test.test_fastRead();
     system("pause");
     return 0;
 }
