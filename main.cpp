@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 23:20:32
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-21 14:33:52
+ * @LastEditTime: 2022-03-21 14:35:48
  */
 // g++ main.cpp Test.cpp -o main.exe
 
@@ -42,6 +42,9 @@ void fastRead() {
     }
     if (lastIsNum) {  // 文件最后一个是数字
         items[recordNum].insert(num);
+    }
+    if (c != '\n') {  // 如果文件不是以回车结尾的，那么recordNum要+1
+        recordNum++;
     }
     fclose(fp);
 }
