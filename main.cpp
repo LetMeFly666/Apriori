@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 23:20:32
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-22 08:47:48
+ * @LastEditTime: 2022-03-22 09:02:00
  */
 // g++ main.cpp Test.cpp -o main.exe
 
@@ -101,9 +101,8 @@ void inputAnd2minSupportNum() {
             }
         }
     }
+    printf("recordNum = %d, minSupportNum = %d, minSupport = %lf%%\n", recordNum, minSupportNum, (double)minSupportNum * 100 / recordNum);
 }
-
-void prt();
 
 void calu() {
     for (uint16_t i = 0; i < MAX_ITEMID_NUM; i++) {
@@ -113,7 +112,7 @@ void calu() {
     }
     while (ma[maxItemNumPerLog].size()) {
         maxItemNumPerLog++;
-
+        
     }
     maxItemNumPerLog--;  // 因为最后一次ma为空
 }
@@ -121,7 +120,7 @@ void calu() {
 void prt() {
     for (int i = 1; i <= maxItemNumPerLog; i++) {
         printf("\n");
-        printf("itemNum: %d\n", i);
+        printf("itemNum: %d, logNum: %lld\n", i, ma[i].size());
         printf("-------------\n");
         for (map<vector<uint16_t>, int>::iterator it = ma[i].begin(); it != ma[i].end(); it++) {
             bool firstPrt = true;

@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-21 12:09:53
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-21 14:29:36
+ * @LastEditTime: 2022-03-22 09:00:03
  */
 #include "LetMeFly.h"
 
@@ -38,7 +38,6 @@ void Test::test_inputAnd2minSupportNum(int recordNum, bool ifResetRecordnum) {
             cin >> recordNum;
         }
         inputAnd2minSupportNum();
-        printf("recordNum = %d, minSupportNum = %d, minSupport = %lf%%\n", recordNum, minSupportNum, (double)minSupportNum * 100 / recordNum);
         printf("minSupportNum - 1 = %d, minSupport_1 = %lf%%\n", minSupportNum - 1, double(minSupportNum - 1) * 100 / recordNum);
     }
     exit(0);
