@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 23:20:32
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-22 09:40:23
+ * @LastEditTime: 2022-03-22 15:11:34
  */
 // g++ main.cpp Test.cpp -o main.exe
 
@@ -112,13 +112,54 @@ void calu() {
         }
     }
     /* 判断a和b的前sameNum个元素是否相同 */
-    auto ifSame = [](vector<uint16_t> &a, vector<uint16_t> &b, int sameNum) {
+    auto ifSame = [](const vector<uint16_t> &a, const vector<uint16_t> &b, int sameNum) {
         for (int i = 0; i < sameNum; i++)
             if (a[i] != b[i])
                 return false;
         return true;
     };
-    auto addLR = []() {};  // TODO: 
+    /**判断一个vector是否满足最小支持度
+     * 如果满足就返回它的出现次数
+     * 如果不满足就返回-1
+     */
+    auto ifOkV = [](vector<uint16_t> &v) {
+        int num = v.size();
+        // num - 1项是否都满足
+        for (int i = 0; i < num; i++) {
+            vector<uint16_t> temp = v;
+            temp.erase(temp.begin() + i);
+            if (!ma[num - 1].count(temp)) {
+                return -1;
+            }
+        }
+        // v出现的次数
+        int occurTime = 0;
+        for (int i = 0; i < recordNum; i++) {
+            bool allExists = true;
+            for (uint16_t &t : v) {
+                if (!items[i].count(t)) {
+                    allExists = false;
+                    break;
+                }
+            }
+            occurTime += allExists;
+        }
+        return occurTime >= minSupportNum ? occurTime : -1;
+    };
+    auto addLR = [ifOkV](map<vector<uint16_t>, int>::iterator ita, map<vector<uint16_t>, int>::iterator itb) {
+        int num = ita->first.size();
+        for (map<vector<uint16_t>, int>::iterator i = ita; i != itb; i++) {
+            map<vector<uint16_t>, int>::iterator j = i;
+            for (j++; j != itb; j++) {
+                vector<uint16_t> v = i->first;
+                v.push_back(j->first[num - 1]);
+                int occurTimes = ifOkV(v);
+                if (occurTimes != -1) {
+                    ma[num + 1][v] = occurTimes;
+                }
+            }
+        }
+    };  // TODO: 
     while (ma[maxItemNumPerLog].size()) {
         maxItemNumPerLog++;
         /**找到所有前(maxItemNumPerLog - 2)个item相同的 l和r
@@ -129,7 +170,12 @@ void calu() {
          *     对∀i, j∈[1, n]且i ≠ j，对∀ki∈[li, ri), kj∈[lj, rj)，∃m∈[0, maxItemNumPerLog - 2)，使ma[maxItemNumPerLog - 1]->(ki-th vector)->(m-th item) ≠ ma[maxItemNumPerLog - 1]->(kj-th vector)->(m-th item)
          */
         map<vector<uint16_t>, int>::iterator lastIter = ma[maxItemNumPerLog - 1].begin();
-        
+        for (map<vector<uint16_t>, int>::iterator it = ++ma[maxItemNumPerLog - 1].begin(); it != ma[maxItemNumPerLog - 1].end(); it++) {
+            if (!ifSame(lastIter->first, it->first, maxItemNumPerLog - 2)) {
+                addLR(lastIter, it);
+            }
+        }
+
     }
     maxItemNumPerLog--;  // 因为最后一次ma为空
 }
