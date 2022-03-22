@@ -2,11 +2,11 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 23:18:30
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-22 16:43:13
+ * @LastEditTime: 2022-03-22 16:46:19
  */
 #pragma once
 
-#include <set>
+#include <unordered_set>
 #include <map>
 #include <string>
 #include <vector>
@@ -17,7 +17,7 @@ using namespace std;
 #define MAX_RECORD_NUM 88162 + 1
 #define MAX_ITEMID_NUM 16470 + 1
 
-typedef set<uint16_t> set_u16;
+typedef unordered_set<uint16_t> set_u16;
 
 void inputAnd2minSupportNum();
 
