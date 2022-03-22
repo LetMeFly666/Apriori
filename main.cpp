@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 23:20:32
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-22 15:29:57
+ * @LastEditTime: 2022-03-22 16:09:31
  */
 // g++ main.cpp Test.cpp -o main.exe
 
@@ -171,7 +171,7 @@ void calu() {
          */
         map<vector<uint16_t>, int>::iterator lastIter = ma[maxItemNumPerLog - 1].begin();
         for (map<vector<uint16_t>, int>::iterator it = ++ma[maxItemNumPerLog - 1].begin(); it != ma[maxItemNumPerLog - 1].end(); it++) {
-            if (!ifSame(lastIter->first, it->first, maxItemNumPerLog - 2)) {
+            if (ifSame(lastIter->first, it->first, maxItemNumPerLog - 2)) {
                 addLR(lastIter, it);
             }
         }
