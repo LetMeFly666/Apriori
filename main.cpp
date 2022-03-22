@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 23:20:32
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-22 09:25:27
+ * @LastEditTime: 2022-03-22 09:40:23
  */
 // g++ main.cpp Test.cpp -o main.exe
 
@@ -105,11 +105,20 @@ void inputAnd2minSupportNum() {
 }
 
 void calu() {
+    // init L1
     for (uint16_t i = 0; i < MAX_ITEMID_NUM; i++) {
         if (timesEachItemOccured[i] >= minSupportNum) {
             ma[maxItemNumPerLog][{(uint16_t)i}] = timesEachItemOccured[i];
         }
     }
+    /* 判断a和b的前sameNum个元素是否相同 */
+    auto ifSame = [](vector<uint16_t> &a, vector<uint16_t> &b, int sameNum) {
+        for (int i = 0; i < sameNum; i++)
+            if (a[i] != b[i])
+                return false;
+        return true;
+    };
+    auto addLR = []() {};  // TODO: 
     while (ma[maxItemNumPerLog].size()) {
         maxItemNumPerLog++;
         /**找到所有前(maxItemNumPerLog - 2)个item相同的 l和r
@@ -119,6 +128,8 @@ void calu() {
          *     对∀i∈[1, n]，对∀j, k∈[li, ri)，对∀m∈[0, maxItemNumPerLog - 2)，有ma[maxItemNumPerLog - 1]->(j-th vector)->(m-th item) = ma[maxItemNumPerLog - 1]->(k-th vector)->(m-th item)
          *     对∀i, j∈[1, n]且i ≠ j，对∀ki∈[li, ri), kj∈[lj, rj)，∃m∈[0, maxItemNumPerLog - 2)，使ma[maxItemNumPerLog - 1]->(ki-th vector)->(m-th item) ≠ ma[maxItemNumPerLog - 1]->(kj-th vector)->(m-th item)
          */
+        map<vector<uint16_t>, int>::iterator lastIter = ma[maxItemNumPerLog - 1].begin();
+        
     }
     maxItemNumPerLog--;  // 因为最后一次ma为空
 }
