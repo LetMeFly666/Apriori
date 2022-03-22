@@ -7,3 +7,5 @@ del*
 *.user
 x64
 Github-Apriori-python3
+Debug
+Release
