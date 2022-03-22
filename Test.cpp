@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-21 12:09:53
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-22 16:31:47
+ * @LastEditTime: 2022-03-22 16:41:24
  */
 #include "LetMeFly.h"
 
@@ -10,7 +10,7 @@
 #define Test_CPP
 
 /* main.cpp: test.test_fastRead(items, recordNum); */
-void Test::test_fastRead(unordered_set<uint16_t> items[], int recordNum, bool toFile) {
+void Test::test_fastRead(set_u16 items[], int recordNum, bool toFile) {
     puts("items:");
     if (toFile) {
         puts("See it in test_fastRead.out");
@@ -18,7 +18,7 @@ void Test::test_fastRead(unordered_set<uint16_t> items[], int recordNum, bool to
     }
     cout << "Total record num: " << recordNum << endl;
     for (int i = 0; i < recordNum; i++) {
-        for (unordered_set<uint16_t>::iterator it = items[i].begin(); it != items[i].end(); it++) {
+        for (set_u16::iterator it = items[i].begin(); it != items[i].end(); it++) {
             cout << *it << ' ';
         }
         puts("");

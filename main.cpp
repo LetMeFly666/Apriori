@@ -2,14 +2,14 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 23:20:32
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-22 16:38:58
+ * @LastEditTime: 2022-03-22 16:41:17
  */
 // g++ main.cpp Test.cpp -o main.exe
 
 #include "LetMeFly.h"
 #define DATA_NAME "Source\\retail.dat"
 
-unordered_set<uint16_t> items[MAX_RECORD_NUM];  // 方法四、交易记录
+set_u16 items[MAX_RECORD_NUM];  // 方法四、交易记录
 int recordNum = 0;  // 第recordNum条交易记录
 int minSupportNum;  // 最少出现多少次才能
 typedef pair<vector<uint16_t>, int> Log;  // <[id1, id2, id3, ...], 出现次数>
