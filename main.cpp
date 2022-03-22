@@ -2,20 +2,20 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 23:20:32
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-22 08:26:56
+ * @LastEditTime: 2022-03-22 08:47:48
  */
 // g++ main.cpp Test.cpp -o main.exe
 
 #include "LetMeFly.h"
 #define DATA_NAME "Source\\retail.dat"
 
-set<uint16_t> items[88163];  // 方法四、交易记录
-set<uint16_t> ids;  // 所有的商品id
+set<uint16_t> items[MAX_RECORD_NUM];  // 方法四、交易记录
 int recordNum = 0;  // 第recordNum条交易记录
 int minSupportNum;  // 最少出现多少次才能
 typedef pair<vector<uint16_t>, int> Log;  // <[id1, id2, id3, ...], 出现次数>
-map<vector<uint16_t>, int> ma[88163];  // ma[i]：商品个数为i的 <[id1, id2, ..., idi], 出现次数>
+map<vector<uint16_t>, int> ma[MAX_RECORD_NUM];  // ma[i]：商品个数为i的 <[id1, id2, ..., idi], 出现次数>
 int maxItemNumPerLog = 1;  // 每项的商品数量
+int timesEachItemOccured[MAX_ITEMID_NUM];  // 每个商品出现的次数，用于预处理L1
 
 /* 读入数据 */
 void fastRead() {
@@ -37,7 +37,7 @@ void fastRead() {
         else {
             if (lastIsNum) {  // 数字->非数字
                 items[recordNum].insert(num);
-                ids.insert(num);
+                timesEachItemOccured[num]++;
             }
             if (c == '\n') {
                 recordNum++;
@@ -47,7 +47,7 @@ void fastRead() {
     }
     if (lastIsNum) {  // 文件最后一个是数字
         items[recordNum].insert(num);
-        ids.insert(num);
+        timesEachItemOccured[num]++;
     }
     if (c != '\n') {  // 如果文件不是以回车结尾的，那么recordNum要+1
         recordNum++;
@@ -106,7 +106,11 @@ void inputAnd2minSupportNum() {
 void prt();
 
 void calu() {
-    
+    for (uint16_t i = 0; i < MAX_ITEMID_NUM; i++) {
+        if (timesEachItemOccured[i] >= minSupportNum) {
+            ma[maxItemNumPerLog][{(uint16_t)i}] = timesEachItemOccured[i];
+        }
+    }
     while (ma[maxItemNumPerLog].size()) {
         maxItemNumPerLog++;
 
