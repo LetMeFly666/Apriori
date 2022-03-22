@@ -1,5 +1,6 @@
 Please input the min_support, 80.756% for percent, 80756 for num:2%
 recordNum = 88163, minSupportNum = 1764, minSupport = 2.000839%
+Calculate cost time: 17.853s
 All founded. MaxItemNum = 3
 
 itemNum: 1, logNum: 20

@@ -2,14 +2,14 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 23:20:32
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-22 16:30:22
+ * @LastEditTime: 2022-03-22 16:38:58
  */
 // g++ main.cpp Test.cpp -o main.exe
 
 #include "LetMeFly.h"
 #define DATA_NAME "Source\\retail.dat"
 
-set<uint16_t> items[MAX_RECORD_NUM];  // 方法四、交易记录
+unordered_set<uint16_t> items[MAX_RECORD_NUM];  // 方法四、交易记录
 int recordNum = 0;  // 第recordNum条交易记录
 int minSupportNum;  // 最少出现多少次才能
 typedef pair<vector<uint16_t>, int> Log;  // <[id1, id2, id3, ...], 出现次数>
@@ -206,7 +206,10 @@ int main() {
     printf("Please input the min_support, 80.756%% for percent, 80756 for num:");
     fastRead();
     inputAnd2minSupportNum();
+    time_t begin = clock();
     calu();
+    time_t end = clock();
     prt();
+    cout << "Calculate cost time: " << ((double)(end - begin)) / CLK_TCK << "s" << endl;
     return 0;
 }
