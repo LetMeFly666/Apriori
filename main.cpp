@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 23:20:32
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-22 09:02:00
+ * @LastEditTime: 2022-03-22 09:25:27
  */
 // g++ main.cpp Test.cpp -o main.exe
 
@@ -112,7 +112,13 @@ void calu() {
     }
     while (ma[maxItemNumPerLog].size()) {
         maxItemNumPerLog++;
-        
+        /**找到所有前(maxItemNumPerLog - 2)个item相同的 l和r
+         * 也就是说把[0, ma[maxItemNumPerLog - 1].size()) 分成 [l1, r1) + [l2, r2) + ... + [ln, rn)
+         * 其中r1 = l2, r2 = l3, ..., rn-1 = ln; rn = maxItemNumPerLog - 1
+         * 并且：
+         *     对∀i∈[1, n]，对∀j, k∈[li, ri)，对∀m∈[0, maxItemNumPerLog - 2)，有ma[maxItemNumPerLog - 1]->(j-th vector)->(m-th item) = ma[maxItemNumPerLog - 1]->(k-th vector)->(m-th item)
+         *     对∀i, j∈[1, n]且i ≠ j，对∀ki∈[li, ri), kj∈[lj, rj)，∃m∈[0, maxItemNumPerLog - 2)，使ma[maxItemNumPerLog - 1]->(ki-th vector)->(m-th item) ≠ ma[maxItemNumPerLog - 1]->(kj-th vector)->(m-th item)
+         */
     }
     maxItemNumPerLog--;  // 因为最后一次ma为空
 }
