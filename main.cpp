@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 23:20:32
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-21 22:03:57
+ * @LastEditTime: 2022-03-22 08:26:56
  */
 // g++ main.cpp Test.cpp -o main.exe
 
@@ -106,18 +106,7 @@ void inputAnd2minSupportNum() {
 void prt();
 
 void calu() {
-    for (set<uint16_t>::iterator it = ids.begin(); it != ids.end(); it++) {
-        vector<uint16_t> thisLog = {*it};
-        if (*it % 100 == 0)
-            dbg(*it);
-        int cnt = 0;
-        for (int i = 0; i < recordNum; i++) {
-            cnt += items[i].count(*it);
-        }
-        if (cnt >= minSupportNum)
-            ma[maxItemNumPerLog][thisLog] = cnt;
-    }
-    prt();
+    
     while (ma[maxItemNumPerLog].size()) {
         maxItemNumPerLog++;
 
