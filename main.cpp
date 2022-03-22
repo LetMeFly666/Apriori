@@ -181,6 +181,7 @@ void calu() {
 }
 
 void prt() {
+    printf("All founded. MaxItemNum = %d\n", maxItemNumPerLog);
     for (int i = 1; i <= maxItemNumPerLog; i++) {
         printf("\n");
         printf("itemNum: %d, logNum: %lld\n", i, ma[i].size());
