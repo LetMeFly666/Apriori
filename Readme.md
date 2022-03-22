@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 22:50:20
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-21 11:47:41
+ * @LastEditTime: 2022-03-22 16:30:03
 -->
 # Apriori算法实现关联规则的数据挖掘
 
@@ -151,3 +151,10 @@ Ln是由Ln-1得到的。假设n=3，ab、ac∈Ln-1，由Ln-1得到Ln的时候，
 1. 统计abc的出现次数
 
 2. 找C中前缀全部相同的项（abc + abd -> abcd）
+
+
+## 后记
+
+算法已经实现，暂未优化。主要就是L1->L2比较慢。假如使用数据<code>Source\retail.dat</code>且令最小支持度为2%，那么L1就有20个元素。
+
+一共88162条记录，88162*20=1,763,240，set.count再加个log(N)，应该是执行了最少1e7的运算。
