@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 22:50:20
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-23 08:49:13
+ * @LastEditTime: 2022-03-23 08:56:05
 -->
 # Apriori算法实现关联规则的数据挖掘
 
@@ -168,7 +168,26 @@ Ln是由Ln-1得到的。假设n=3，ab、ac∈Ln-1，由Ln-1得到Ln的时候，
 
 ## Release
 
-<detail>
-<summary>v0.0.1-x86Bug版</summary>
-safsfs
-</detail>
+<details>
+<summary>v0.0.1-Bugx86版</summary>
+<li><a href="https://github.com/LetMeFly666/Apriori/releases/download/v0.0.1/Apriori-v0.0.1-x64-Debug.exe">Apriori-v0.0.1-x64-Debug.exe</a></li>
+<li><a href="https://github.com/LetMeFly666/Apriori/releases/download/v0.0.1/Apriori-v0.0.1-x64-Release.exe">Apriori-v0.0.1-x64-Release.exe</a></li>
+<li><a href="https://github.com/LetMeFly666/Apriori/releases/download/v0.0.1/Apriori-v0.0.1-x86-Debug.exe">Apriori-v0.0.1-x86-Debug.exe</a></li>
+<li><a href="https://github.com/LetMeFly666/Apriori/releases/download/v0.0.1/Apriori-v0.0.1-x86-Release.exe">Apriori-v0.0.1-x86-Release.exe</a></li>
+<li><a href="https://github.com/LetMeFly666/Apriori/releases/download/v0.0.1/Apriori-v0.0.1-Codes.rar">Apriori-v0.0.1-Codes.rar</a></li>
+<li><a href="https://github.com/LetMeFly666/Apriori/releases/download/v0.0.1/Apriori-v0.0.1-Codes.zip">Apriori-v0.0.1-Codes.zip</a></li>
+<li><a href="https://github.com/LetMeFly666/Apriori/archive/refs/tags/v0.0.1.zip">Source code (zip)</a></li>
+<li><a href="https://github.com/LetMeFly666/Apriori/archive/refs/tags/v0.0.1.tar.gz">Source code (tar.gz)</a></li>
+</details>
+
+<details>
+<summary>v0.0.2-Bugx86版</summary>
+<li><a href="https://github.com/LetMeFly666/Apriori/releases/download/v0.0.2/Apriori-v0.0.2-x64-Debug.exe">Apriori-v0.0.2-x64-Debug.exe</a></li>
+<li><a href="https://github.com/LetMeFly666/Apriori/releases/download/v0.0.2/Apriori-v0.0.2-x64-Release.exe">Apriori-v0.0.2-x64-Release.exe</a></li>
+<li><a href="https://github.com/LetMeFly666/Apriori/releases/download/v0.0.2/Apriori-v0.0.2-x86-Debug.exe">Apriori-v0.0.2-x86-Debug.exe</a></li>
+<li><a href="https://github.com/LetMeFly666/Apriori/releases/download/v0.0.2/Apriori-v0.0.2-x86-Release.exe">Apriori-v0.0.2-x86-Release.exe</a></li>
+<li><a href="https://github.com/LetMeFly666/Apriori/releases/download/v0.0.2/Apriori-v0.0.2-Codes.rar">Apriori-v0.0.2-Codes.rar</a></li>
+<li><a href="https://github.com/LetMeFly666/Apriori/releases/download/v0.0.2/Apriori-v0.0.2-Codes.zip">Apriori-v0.0.2-Codes.zip</a></li>
+<li><a href="https://github.com/LetMeFly666/Apriori/archive/refs/tags/v0.0.2.zip">Source code (zip)</a></li>
+<li><a href="https://github.com/LetMeFly666/Apriori/archive/refs/tags/v0.0.2.tar.gz">Source code (tar.gz)</a></li>
+</details>
