@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 22:50:20
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-22 16:50:05
+ * @LastEditTime: 2022-03-23 08:46:44
 -->
 # Apriori算法实现关联规则的数据挖掘
 
@@ -165,3 +165,18 @@ Ln是由Ln-1得到的。假设n=3，ab、ac∈Ln-1，由Ln-1得到Ln的时候，
 | ------------------------------------------------ | ------ | --------------- |
 | 方案四中，每条消费记录用set还是unordered_set来存 | set ❌  | unordered_set ✔ |
 
+
+## Release
+
+<detail>
+<summary>v0.0.1-x86Bug版</summary>
+|   0   |    1  |
+| ---- | ---- |
+|    2  |     2 |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+|      |      |
+</detail>
