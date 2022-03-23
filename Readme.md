@@ -170,5 +170,5 @@ Ln是由Ln-1得到的。假设n=3，ab、ac∈Ln-1，由Ln-1得到Ln的时候，
 
 <detail>
 <summary>v0.0.1-x86Bug版</summary>
-+ nih
+safsfs
 </detail>
