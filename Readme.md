@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 22:50:20
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-23 08:46:44
+ * @LastEditTime: 2022-03-23 08:49:13
 -->
 # Apriori算法实现关联规则的数据挖掘
 
@@ -170,13 +170,5 @@ Ln是由Ln-1得到的。假设n=3，ab、ac∈Ln-1，由Ln-1得到Ln的时候，
 
 <detail>
 <summary>v0.0.1-x86Bug版</summary>
-|   0   |    1  |
-| ---- | ---- |
-|    2  |     2 |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
++ nih
 </detail>
