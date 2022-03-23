@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 23:20:32
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-22 16:41:17
+ * @LastEditTime: 2022-03-23 08:43:10
  */
 // g++ main.cpp Test.cpp -o main.exe
 
@@ -184,7 +184,7 @@ void prt() {
     printf("All founded. MaxItemNum = %d\n", maxItemNumPerLog);
     for (int i = 1; i <= maxItemNumPerLog; i++) {
         printf("\n");
-        printf("itemNum: %d, logNum: %lld\n", i, ma[i].size());
+        printf("itemNum: %d, logNum: %d\n", i, (int)ma[i].size());
         printf("-------------\n");
         for (map<vector<uint16_t>, int>::iterator it = ma[i].begin(); it != ma[i].end(); it++) {
             bool firstPrt = true;
