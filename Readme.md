@@ -2,7 +2,7 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 22:50:20
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-04-16 19:32:05
+ * @LastEditTime: 2022-04-16 19:54:07
 -->
 # Apriori算法实现关联规则的数据挖掘
 
@@ -197,4 +197,11 @@ Ln是由Ln-1得到的。假设n=3，ab、ac∈Ln-1，由Ln-1得到Ln的时候，
 <li><a href="https://github.com/LetMeFly666/Apriori/releases/download/v0.0.2/Apriori-v0.0.2-Codes.zip">Apriori-v0.0.2-Codes.zip</a></li>
 <li><a href="https://github.com/LetMeFly666/Apriori/archive/refs/tags/v0.0.2.zip">Source code (zip)</a></li>
 <li><a href="https://github.com/LetMeFly666/Apriori/archive/refs/tags/v0.0.2.tar.gz">Source code (tar.gz)</a></li>
+</details>
+
+<details>
+<summary>v0.1.0</summary>
+<li><a href="https://github.com/LetMeFly666/Apriori/releases/download/v0.1.0/Apriori-v0.1.0-x64-Release.exe">Apriori-v0.1.0-x64-Release.exe</a></li>
+<li><a href="https://github.com/LetMeFly666/Apriori/archive/refs/tags/v0.1.0.zip">Source code (zip)</a></li>
+<li><a href="https://github.com/LetMeFly666/Apriori/archive/refs/tags/v0.1.0.tar.gz">Source code (tar.gz)</a></li>
 </details>
