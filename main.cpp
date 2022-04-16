@@ -2,12 +2,12 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 23:20:32
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-04-16 19:13:10
+ * @LastEditTime: 2022-04-16 19:19:16
  */
 // g++ main.cpp Test.cpp -o main.exe
 
 #include "LetMeFly.h"
-#define DATA_NAME "Source\\min2.dat"
+#define DATA_NAME "Source/retail.dat"
 
 set_u16 items[MAX_RECORD_NUM];  // 方法四、交易记录
 int recordNum = 0;  // 第recordNum条交易记录
@@ -184,9 +184,11 @@ void calu() {
 
 void prt() {
     printf("All founded. MaxItemNum = %d\n", maxItemNumPerLog);
+    int cnt = 0;
     for (int i = 1; i <= maxItemNumPerLog; i++) {
         printf("\n");
         printf("itemNum: %d, logNum: %d\n", i, (int)ma[i].size());
+        cnt += (int)ma[i].size();
         printf("-------------\n");
         for (map<vector<uint16_t>, int>::iterator it = ma[i].begin(); it != ma[i].end(); it++) {
             bool firstPrt = true;
@@ -202,6 +204,7 @@ void prt() {
             printf(" -> %d\n", it->second);
         }
     }
+    printf("\n%d sets were found.\n", cnt);
 }
 
 int main() {
