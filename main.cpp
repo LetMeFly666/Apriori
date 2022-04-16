@@ -2,12 +2,12 @@
  * @Author: LetMeFly
  * @Date: 2022-03-16 23:20:32
  * @LastEditors: LetMeFly
- * @LastEditTime: 2022-03-23 08:43:10
+ * @LastEditTime: 2022-04-16 19:13:10
  */
 // g++ main.cpp Test.cpp -o main.exe
 
 #include "LetMeFly.h"
-#define DATA_NAME "Source\\retail.dat"
+#define DATA_NAME "Source\\min2.dat"
 
 set_u16 items[MAX_RECORD_NUM];  // 方法四、交易记录
 int recordNum = 0;  // 第recordNum条交易记录
@@ -146,6 +146,7 @@ void calu() {
         }
         return occurTime >= minSupportNum ? occurTime : -1;
     };
+    // [L, R)
     auto addLR = [ifOkV](map<vector<uint16_t>, int>::iterator ita, map<vector<uint16_t>, int>::iterator itb) {
         int num = ita->first.size();
         for (map<vector<uint16_t>, int>::iterator i = ita; i != itb; i++) {
@@ -171,11 +172,12 @@ void calu() {
          */
         map<vector<uint16_t>, int>::iterator lastIter = ma[maxItemNumPerLog - 1].begin();
         for (map<vector<uint16_t>, int>::iterator it = ++ma[maxItemNumPerLog - 1].begin(); it != ma[maxItemNumPerLog - 1].end(); it++) {
-            if (ifSame(lastIter->first, it->first, maxItemNumPerLog - 2)) {
+            if (!ifSame(lastIter->first, it->first, maxItemNumPerLog - 2)) {
                 addLR(lastIter, it);
+                lastIter = it;
             }
         }
-
+        addLR(lastIter, ma[maxItemNumPerLog - 1].end());
     }
     maxItemNumPerLog--;  // 因为最后一次ma为空
 }
