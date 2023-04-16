@@ -8,11 +8,14 @@
 
 ## 前言
 
-<a href="https://github.com/LetMeFly666/Apriori">这个项目</a>正在完成中，目前是Private状态，预计今年(2022)5月份开源(变成public)
+Apriori算法实现关联规则的数据挖掘
 
-现在项目为私有的原因主要有两个：
-+ 一是项目还未完工
-+ 二是这个作业吧，怎么说，挺怕检查的时候被查重的
++ 在线文档 [https://apriori.letmefly.xyz](https://apriori.letmefly.xyz)
+
++ 项目地址 [https://github.com/LetMeFly666/apriori](https://github.com/LetMeFly666/apriori)
+
++ See [FP-growth(https://github.com/LetMeFly666/FP-growth)](https://github.com/LetMeFly666/FP-growth) For More
+
 
 ## 实现目标
 
